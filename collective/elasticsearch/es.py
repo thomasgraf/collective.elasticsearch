@@ -74,9 +74,9 @@ class ElasticSearchCatalog(object):
 
     # so these can be deleted but still used in queries
     _default_mapping = {
-        'SearchableText': {'store': False, 'type': 'string', 'index': 'analyzed'},
-        'Title': {'store': False, 'type': 'string', 'index': 'analyzed'},
-        'Description': {'store': False, 'type': 'string', 'index': 'analyzed'},
+        'SearchableText': {'store': False, 'type': 'text', 'index': 'analyzed'},
+        'Title': {'store': False, 'type': 'text', 'index': 'analyzed'},
+        'Description': {'store': False, 'type': 'text', 'index': 'analyzed'},
         'views': {'store': True, 'type': 'integer'}  # allow integrators to utilize this
     }
 
@@ -113,7 +113,7 @@ class ElasticSearchCatalog(object):
         '''
         if 'start' in query_params:
             query_params['from_'] = query_params.pop('start')
-        query_params['fields'] = 'path.path'
+        query_params['stored_fields'] = 'path.path'
         query_params['size'] = self.get_setting('bulk_size', 50)
 
         return self.connection.search(index=self.index_name,

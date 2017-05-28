@@ -28,15 +28,7 @@ class ElasticControlPanelFormWrapper(ControlPanelFormWrapper):
 
     @property
     def connection_status(self):
-        try:
-            return self.es.connection.status()['ok']
-        except AttributeError:
-            try:
-                return self.es.connection.cluster.health()['status'] in ('green', 'yellow')
-            except:
-                return False
-        except:
-            return False
+        return self.es.connection.ping() and self.es.connection.cluster.health()['status'] in ('green', 'yellow')
 
     @property
     def es_info(self):
