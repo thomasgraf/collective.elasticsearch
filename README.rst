@@ -13,8 +13,8 @@ Step by Step for Ubuntu:
     - add-apt-repository ppa:webupd8team/java
     - apt-get update
     - apt-get install git curl oracle-java7-installer
-    - curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-2.3.3.tar.gz
-    - tar xfvz elasticsearch-1.3.4.deb
+    - curl -O https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-5.4.0.tar.gz
+    - tar xfvz elasticsearch-5.4.0.deb
     - cd elasticsearch
     - bin/elasticsearch -f &
 
