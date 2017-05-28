@@ -52,7 +52,7 @@ Compatibility
 
 Only works on Plone 5 with Dexterity types.
 
-Deployed with Elasticsearch 2.3.3
+Developed with Elasticsearch 5.4.0 & Plone 5.0.7
 
 State
 -----
